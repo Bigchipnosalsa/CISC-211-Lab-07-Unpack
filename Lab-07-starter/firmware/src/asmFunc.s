@@ -59,7 +59,21 @@ asmFunc:
      * Use it to test the C test code */
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
-
+    /* step one place value of r0 into new register r1 value now stored in both */
+    MOV r1,r0
+    /* logical shift right to isolate the first 16 bits in the 32 bit code*/
+    ASR r1,16
+    /*copy value of r0 into r2 to isolate the 2nd half of bits*/
+    MOV r2,r0
+    /*locical shift left to get ride of the 1st half of bits*/
+    LSL r2,16
+    /*shift back to right to place bits back to thier correct spots*/
+    ASR r2,16
+    LDR r3, =a_value
+    LDR r4, =b_value
+    STR r1, [r3]
+    STR r2, [r4]  
+    
     
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
 
